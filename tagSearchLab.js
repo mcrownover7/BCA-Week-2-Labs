@@ -51,17 +51,23 @@ askingForTag();
 
 //creating a function to ask a user for a tag. passes the tag and calls the filter/search function.
 async function askingForTag() {
-  let string = await ask("Please enter a tag!\n");
-  search(string);
+  let userTag = await ask("Please enter a tag!\n");
+  search(userTag);
 }
 
 //creating a function (search) that takes a single argument to return a new array of each book with a matching tag.
-function search(string) {
-  string = string.toLowerCase();
+function search(userTag) {
+  userTag = userTag.toLowerCase();
   //setting the filter to include any results were the tag includes the user input.
   let containsTag = results.filter(function (word) {
-    return word.tags.includes(string);
+    return word.tags.includes(userTag);
   });
+  //have to declare empty string or it will say undefined before the first result.
+  let titleOnly = "";
+  for (let i = 0; i < containsTag.length; i++) {
+    titleOnly += containsTag[i].title + "\n";
+  }
   console.log(containsTag);
+  console.log(titleOnly);
   process.exit();
 }
