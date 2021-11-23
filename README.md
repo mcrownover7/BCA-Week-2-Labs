@@ -1,1 +1,1 @@
-Labs from week 7 of Burlington Code Academy cohort 8 (focusing on javascript).
+Labs from week 2 of Burlington Code Academy cohort 8 (focusing on javascript).
